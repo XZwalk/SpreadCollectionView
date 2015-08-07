@@ -1,0 +1,17 @@
+//
+//  PrefixHeader.pch
+//  SpreadCollectionView
+//
+//  Created by 张祥 on 15/8/7.
+//  Copyright (c) 2015年 张祥. All rights reserved.
+//
+
+#ifndef SpreadCollectionView_PrefixHeader_pch
+#define SpreadCollectionView_PrefixHeader_pch
+
+#define kScreenWidth [UIScreen mainScreen].bounds.size.width
+#define kItem_Height 60
+#define kItem_Number 4
+#define kDetail_Item_Number 4
+
+#endif
