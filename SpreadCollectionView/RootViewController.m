@@ -189,7 +189,7 @@
 - (void)getDataFromServe
 {
     
-    NSString *urlStr = @"http://121.41.117.95:80/HandheldKitchen/api/home/tblAssort!getFirstgrade.do";
+    NSString *urlStr = @"http://121.41.88.194:80/HandheldKitchen/api/home/tblAssort!getFirstgrade.do";
     
     
     NSURL *url = [NSURL URLWithString:urlStr];
