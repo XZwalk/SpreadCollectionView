@@ -9,5 +9,7 @@ It can expand the secondary view
 9月15日
 
 1.链接已经更新，目前测试应该没问题
+
 2.Xcode7上一些API被废弃，运行起来的时候可能会出现一些不明的问题
+
 3.建议目前还是使用Xcode7以下版本测试，这两天会把一些API同步更新一下
