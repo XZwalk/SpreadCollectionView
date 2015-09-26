@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>8A0AB5F2-24EA-42B3-8C1E-EAE0DD7F11C0</string>
+	<key>IDESourceControlProjectName</key>
+	<string>SpreadCollectionView</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>C7E97EA92A840E9EE800AE85C673ED92F0B5055B</key>
+		<string>https://github.com/XZwalk/SpreadCollectionView.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>SpreadCollectionView.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>C7E97EA92A840E9EE800AE85C673ED92F0B5055B</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/XZwalk/SpreadCollectionView.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>C7E97EA92A840E9EE800AE85C673ED92F0B5055B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C7E97EA92A840E9EE800AE85C673ED92F0B5055B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SpreadCollectionView</string>
+		</dict>
+	</array>
+</dict>
+</plist>
