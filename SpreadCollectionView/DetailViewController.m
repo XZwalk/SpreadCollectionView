@@ -17,6 +17,8 @@
 
 @implementation DetailViewController
 
+#pragma mark - lifecycle
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -31,6 +33,14 @@
     [self.minView  registerClass:[DetailCollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
     
 }
+
+- (void)viewWillAppear:(BOOL)animated {
+    
+    
+}
+
+
+
 
 
 
@@ -92,5 +102,11 @@
 {
     return 0;
 }
+
+#pragma mark - settersAndgetters
+
+
+
+
 
 @end
