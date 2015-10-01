@@ -217,34 +217,60 @@
 
 
 
-#pragma mark - 从plst文件中获取详情列表数据
+#pragma mark - 获取详情列表数据
 
 - (void)getDataFromServe
 {
+    NSFileManager *filer = [NSFileManager defaultManager];
+    NSString *dou = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) firstObject];
+    
+    NSString *filePath = [dou stringByAppendingPathComponent:@"Preferences/LOcalData.plist"];
+    
+    NSLog(@"%@", dou);
+    
+//    if ([filer fileExistsAtPath:filePath]) {
+//         NSDictionary * dic = [NSDictionary dictionaryWithContentsOfFile:filePath];
+//        
+//        NSArray *dataAry = dic[@"localData"];
+//        
+//        
+//    }
+    
+   
+    
+    
+    
     
     NSString *urlStr = @"http://121.41.88.194:80/HandheldKitchen/api/home/tblAssort!getFirstgrade.do";
-    
-    
     NSURL *url = [NSURL URLWithString:urlStr];
-    
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         
         if (data) {
             
             NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
             
+            //创建本地plist文件，并给plist命名
+            NSUserDefaults *user = [[NSUserDefaults alloc] initWithSuiteName:@"LocalData"];
+            
+            //打印plist文件所在的位置
+            NSString *dou = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) firstObject];
+            NSLog(@"%@", dou);
             
             NSArray *dataAry = dic[@"data"];
             
+            //这样直接给plist赋值就相当于把所有数据储存在了plist里面
+            [user setObject:dic forKey:@"localData"];
+            
+            //我觉得这一句写不写,意义不是特别大,我不加这句它也能保存,只是这样更安全一些
+            [user synchronize];
+
             
             for (NSDictionary *dic1 in dataAry) {
                 
                 MainModel *main = [[MainModel alloc] init];
                 
                 [main setValuesForKeysWithDictionary:dic1];
-                
                 
                 [self.listAry addObject:main];
                 
