@@ -30,8 +30,9 @@
 @property (nonatomic, assign) BOOL isSelected;
 @property (nonatomic, retain) NSIndexPath *index;
 @property (nonatomic, retain) NSMutableIndexSet *indexSet;
-@property (nonatomic, retain) NSDictionary *tempDic;
 
+//因为本地直接写无法接收文件对象而写得两个属性, 但是这两个属性不用写成懒加载
+@property (nonatomic, retain) NSDictionary *tempDic;
 @property (nonatomic, retain) NSDictionary *localDic;
 
 
@@ -426,12 +427,5 @@
     
     return _indexSet;
 }
-
-//- (NSDictionary *)tempDic {
-//    if (_tempDic) {
-//        self.tempDic = [NSDictionary new];
-//    }
-//    return _tempDic;
-//}
 
 @end
