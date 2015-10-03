@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>8A0AB5F2-24EA-42B3-8C1E-EAE0DD7F11C0</string>
 	<key>IDESourceControlProjectName</key>
-	<string>SpreadCollectionView</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>C7E97EA92A840E9EE800AE85C673ED92F0B5055B</key>
 		<string>https://github.com/XZwalk/SpreadCollectionView.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>SpreadCollectionView.xcodeproj</string>
+	<string>SpreadCollectionView.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>C7E97EA92A840E9EE800AE85C673ED92F0B5055B</key>

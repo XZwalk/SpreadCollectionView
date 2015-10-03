@@ -30,6 +30,11 @@
 @property (nonatomic, assign) BOOL isSelected;
 @property (nonatomic, retain) NSIndexPath *index;
 @property (nonatomic, retain) NSMutableIndexSet *indexSet;
+@property (nonatomic, retain) NSDictionary *tempDic;
+
+@property (nonatomic, retain) NSDictionary *localDic;
+
+
 
 @end
 
@@ -69,50 +74,6 @@
 
 
 
-#pragma mark - 懒加载
-
-- (NSMutableArray *)indexPathAry
-{
-    if (!_indexPathAry) {
-        self.indexPathAry = [NSMutableArray arrayWithCapacity:1];
-    }
-    return _indexPathAry;
-}
-
-- (NSMutableArray *)sectionAry
-{
-    
-    if (!_sectionAry) {
-        self.sectionAry = [NSMutableArray arrayWithCapacity:1];
-    }
-    return _sectionAry;
-}
-
-- (NSMutableArray *)listAry
-{
-    if (!_listAry) {
-        self.listAry = [NSMutableArray arrayWithCapacity:1];
-    }
-    return _listAry;
-}
-
-
-- (NSMutableArray *)detailAry
-{
-    if (!_detailAry) {
-        self.detailAry = [NSMutableArray arrayWithCapacity:1];
-    }
-    return _detailAry;
-}
-
-- (NSMutableIndexSet *)indexSet
-{
-    if (!_indexSet) {
-        self.indexSet = [NSMutableIndexSet indexSet];
-    }
-    
-    return _indexSet;
-}
 
 
 #pragma mark - UICollectionViewDataSource
@@ -217,7 +178,7 @@
 
 
 
-#pragma mark - 获取详情列表数据
+#pragma mark - 获取详情列表数据(从网络加载或则本地plist加载)
 
 - (void)getDataFromServe
 {
@@ -228,17 +189,34 @@
     
     NSLog(@"%@", dou);
     
-//    if ([filer fileExistsAtPath:filePath]) {
-//         NSDictionary * dic = [NSDictionary dictionaryWithContentsOfFile:filePath];
-//        
-//        NSArray *dataAry = dic[@"localData"];
-//        
-//        
-//    }
-    
-   
-    
-    
+    if ([filer fileExistsAtPath:filePath]) {
+        
+        //在Xcode7上面，这种用本地文件初始化一个object对象的方法，如果直接用一个字典接收不知道是什么原因，是没有值的，但是当把这个字典写成属性的时候再去接收便可以
+        //要知道在Xcode7以下的版本上这样写是没有问题的
+        //NSDictionary *dic = [NSDictionary dictionaryWithContentsOfFile:filePath];
+        self.tempDic = [NSDictionary dictionaryWithContentsOfFile:filePath];
+        
+        
+        //NSDictionary *dic = self.tempDic[@"localData"];
+        //在这里也是和上面一样,不知道是什么原因,不知道是不是Xcode7新增的什么安全机制还是怎样
+        self.localDic = self.tempDic[@"localData"];
+        
+        
+        NSArray *dataAry = self.localDic[@"data"];
+        
+        for (NSDictionary *dic in dataAry) {
+            
+            MainModel *main = [[MainModel alloc] init];
+            
+            [main setValuesForKeysWithDictionary:dic];
+            
+            [self.listAry addObject:main];
+        }
+        
+        [self.collectionView reloadData];
+        
+        return;
+    }
     
     
     NSString *urlStr = @"http://121.41.88.194:80/HandheldKitchen/api/home/tblAssort!getFirstgrade.do";
@@ -264,7 +242,7 @@
             
             //我觉得这一句写不写,意义不是特别大,我不加这句它也能保存,只是这样更安全一些
             [user synchronize];
-
+            
             
             for (NSDictionary *dic1 in dataAry) {
                 
@@ -280,13 +258,8 @@
         
         [self.collectionView reloadData];
         
-        
     }];
-    
 }
-
-
-
 
 
 
@@ -409,5 +382,56 @@
     
 }
 
+#pragma mark - settersAndgetters
+
+- (NSMutableArray *)indexPathAry
+{
+    if (!_indexPathAry) {
+        self.indexPathAry = [NSMutableArray arrayWithCapacity:1];
+    }
+    return _indexPathAry;
+}
+
+- (NSMutableArray *)sectionAry
+{
+    
+    if (!_sectionAry) {
+        self.sectionAry = [NSMutableArray arrayWithCapacity:1];
+    }
+    return _sectionAry;
+}
+
+- (NSMutableArray *)listAry
+{
+    if (!_listAry) {
+        self.listAry = [NSMutableArray arrayWithCapacity:1];
+    }
+    return _listAry;
+}
+
+
+- (NSMutableArray *)detailAry
+{
+    if (!_detailAry) {
+        self.detailAry = [NSMutableArray arrayWithCapacity:1];
+    }
+    return _detailAry;
+}
+
+- (NSMutableIndexSet *)indexSet
+{
+    if (!_indexSet) {
+        self.indexSet = [NSMutableIndexSet indexSet];
+    }
+    
+    return _indexSet;
+}
+
+//- (NSDictionary *)tempDic {
+//    if (_tempDic) {
+//        self.tempDic = [NSDictionary new];
+//    }
+//    return _tempDic;
+//}
 
 @end
