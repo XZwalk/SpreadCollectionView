@@ -219,8 +219,7 @@
         return;
     }
     
-    
-    NSString *urlStr = @"http://121.41.88.194:80/HandheldKitchen/api/home/tblAssort!getFirstgrade.do";
+    NSString *urlStr = @"http://121.41.88.115:80/HandheldKitchen/api/home/tblAssort!getFirstgrade.do";
     NSURL *url = [NSURL URLWithString:urlStr];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
