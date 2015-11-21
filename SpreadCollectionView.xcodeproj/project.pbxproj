@@ -36,6 +36,7 @@
 		FE3F0AF81B627139001F0157 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3F0AF31B627139001F0157 /* RootViewController.m */; };
 		FE3F0AFE1B627773001F0157 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3F0AFD1B627773001F0157 /* DetailViewController.m */; };
 		FE3F0B8C1B631F87001F0157 /* UIViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3F0B8B1B631F87001F0157 /* UIViewAdditions.m */; };
+		FE5FC5861C0082C9002603E7 /* LocalData.plist in Resources */ = {isa = PBXBuildFile; fileRef = FE5FC5851C0082C9002603E7 /* LocalData.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +110,7 @@
 		FE3F0AFD1B627773001F0157 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		FE3F0B8A1B631F87001F0157 /* UIViewAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIViewAdditions.h; path = ../UIViewAdditions.h; sourceTree = "<group>"; };
 		FE3F0B8B1B631F87001F0157 /* UIViewAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIViewAdditions.m; path = ../UIViewAdditions.m; sourceTree = "<group>"; };
+		FE5FC5851C0082C9002603E7 /* LocalData.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = LocalData.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +174,7 @@
 		FE3F0ABB1B626E19001F0157 = {
 			isa = PBXGroup;
 			children = (
+				FE5FC5851C0082C9002603E7 /* LocalData.plist */,
 				FE0225F91B73AA6F00BAD10C /* SDWebImage */,
 				FE3F0AC61B626E19001F0157 /* SpreadCollectionView */,
 				FE3F0ADA1B626E19001F0157 /* SpreadCollectionViewTests */,
@@ -357,6 +360,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE5FC5861C0082C9002603E7 /* LocalData.plist in Resources */,
 				FE3F0AD21B626E19001F0157 /* LaunchScreen.xib in Resources */,
 				FE3F0ACF1B626E19001F0157 /* Images.xcassets in Resources */,
 			);

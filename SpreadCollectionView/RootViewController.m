@@ -188,14 +188,17 @@
     
     NSString *filePath = [dou stringByAppendingPathComponent:@"Preferences/LOcalData.plist"];
     
+    NSString *filePathLocal = [[NSBundle mainBundle] pathForResource:@"LOcalData" ofType:@"plist"];
+    
+    
     NSLog(@"%@", dou);
     
-    if ([filer fileExistsAtPath:filePath]) {
+    if ([filer fileExistsAtPath:filePath] || filePathLocal) {
         
         //在Xcode7上面，这种用本地文件初始化一个object对象的方法，如果直接用一个字典接收不知道是什么原因，是没有值的，但是当把这个字典写成属性的时候再去接收便可以
         //要知道在Xcode7以下的版本上这样写是没有问题的
         //NSDictionary *dic = [NSDictionary dictionaryWithContentsOfFile:filePath];
-        self.tempDic = [NSDictionary dictionaryWithContentsOfFile:filePath];
+        self.tempDic = [NSDictionary dictionaryWithContentsOfFile:filePath ? filePath : filePathLocal];
         
         
         //NSDictionary *dic = self.tempDic[@"localData"];
@@ -218,6 +221,17 @@
         
         return;
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     NSString *urlStr = @"http://121.41.88.115:80/HandheldKitchen/api/home/tblAssort!getFirstgrade.do";
     NSURL *url = [NSURL URLWithString:urlStr];
